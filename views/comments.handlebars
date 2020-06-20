@@ -1,0 +1,63 @@
+<!-- NavBar -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a id="navbarLink" class="navbar-brand" href="/">Web Scraper</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Headlines -->
+    <div class="row headlineRow">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row headlineContent">
+                <div class="col-md-4 headlineImage">
+                    <img src={{document.photo}}>
+                </div>
+                <div class="col-md-8 headline" <h4>
+                    <div class="row">
+                        <div class="col-md-12 headlineTitle">
+                            <a href={{document.link}} target="_blank">{{document.title}}</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{document.summary}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="separator">
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <!-- Comments -->
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="commentPanel">
+                <h4>
+                    <img src="/images/message.png"> Comment
+                </h4>
+                <form method="post" enctype="text/plain">
+                    <textarea id="commentInput" data-id={{document._id}} placeholder="Write a comment..."></textarea>
+                </form>
+            </div>
+            {{#if document.comments}} {{#each document.comments}}
+            <div class="comments">
+                {{message}}
+                <button id="commentDelete" data-id={{_id}} type="submit">Delete</button>
+            </div>
+            {{/each}} {{else}}
+            <div class="noComments">No Comments.</div>
+            {{/if}}
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+</div>

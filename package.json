@@ -1,0 +1,29 @@
+{
+    "name": "web-scraper-ii",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon server.js",
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/luis-morel/web-scraper-ii.git"
+    },
+    "author": "Luis Morel",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/luis-morel/web-scraper-ii/issues"
+    },
+    "homepage": "https://github.com/luis-morel/web-scraper-ii#readme",
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.3",
+        "express": "^4.17.1",
+        "express-handlebars": "^4.0.4",
+        "mongoose": "^5.9.19",
+        "morgan": "^1.10.0",
+        "node-fetch": "^2.6.0"
+    }
+}
