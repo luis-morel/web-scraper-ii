@@ -1,46 +1,83 @@
 /* General Styling */
-.display {
-    background: url(/images/newspaper2.jpg);
-    background-size: 100% 100%;
-    color: whitesmoke;
-    font-size: 121px;
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* Nav Bar Styling */
+
+#navbarLink {
+    color: black;
+    font-family: 'Architects Daughter', cursive;
+    /* font-family: 'Caveat', cursive; */
+    /* font-family: 'Kaushan Script', cursive; */
+    /* font-family: 'Lobster', cursive; */
+    /* font-family: 'Shadows Into Light', cursive; */
+    font-size: 1.5rem;
     font-weight: bold;
-    height: 475px;
-    margin-bottom: 40px;
-    margin-top: -42px;
-    text-align: center;
-    text-shadow: 0 0 15px black;
-    vertical-align: middle;
-    width: 100%;
+    line-height: 1.5rem;
 }
-
-.display p {
-    font-size: 42px;
-}
-
-/* Navbar Styling */
 
 #navbarLink:hover {
     color: black;
 }
 
 .navbar {
-    -webkit-box-shadow: 0 8px 6px -6px #999;
-    -moz-box-shadow: 0 8px 6px -6px #999;
-    background-color: rgb(32,64,95); /* For browsers that don't support gradient coloring */
-    background: linear-gradient(to left, gray, rgb(219,220,220));
-    box-shadow: 0 8px 6px -6px #999;
-    height: 77px;
-    margin-bottom: 42px;
+    height: 4rem;
 }
 
-.navbar-default .navbar-brand {
-    color: whitesmoke;
-    font-size: 21px;
-    line-height: 2.2;
+
+/* Header Styling */
+.jumbotron {
+    background-color: rgb(21, 21, 21);
+    color: white;
 }
 
-/* Headline Styling */
+.jumbotron-fluid {
+    padding: 0;
+}
+
+#jumboPhoto {
+    padding-left: 0;
+}
+
+#jumboPhoto img {
+    max-width: 100%;
+}
+
+#jumboText {
+    padding: 15px;
+}
+
+#jumboText hr {
+    border: 1px solid white;
+}
+
+.jumboTextLinks {
+    color: rgb(5,99,128);
+}
+
+.jumboTextLinks:hover {
+    color: rgb(5,128,128);
+    text-decoration: none;
+}
+
+
+/* Main Styling */
+
+#story-tab {
+    color: black;
+    font-weight: bolder;
+    padding: 0 0 2rem 0;
+}
+
+.story-tabs {
+    border-bottom: 1px solid darkgray !important;
+}
+
+.story-tab {
+    border-color: darkgray darkgray #fff !important;
+}
 
 .commentBar {
     background-color: whitesmoke;

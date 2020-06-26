@@ -1,4 +1,4 @@
-<!-- NavBar -->
+{{!-- NavBar --}}
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -7,44 +7,68 @@
     </div>
 </nav>
 
-<!-- Large Background -->
-<div class="display">Web Scraper<p>NY Times Science Space Headlines</p></div>
-
-<!-- Headlines -->
-<div class="container">
-
-    {{#each document}}
-    <div class="row headlineRow">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="row headlineContent">
-                <div class="col-md-4 headlineImage">
-                    <img src={{photo}}>
-                </div>
-                <div class="col-md-8 headline" <h4>
-                    <div class="row">
-                        <div class="col-md-12 headlineTitle">
-                            <a href={{link}} target="_blank">{{title}}</a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{summary}}
-                        </div>
-                    </div>
-                </div>
+{{!-- <div class="display">Web Scraper<p>NY Times Science Space Headlines</p></div> --}}
+<header class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="jumboPhoto" class="col-md-4">
+                <img src="/images/html-code-image-3.jpg">
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="commentBar">
-                        <button id="commentButton" data-id={{_id}} type="submit">View Comments</button>
-                    </div>
-                </div>
+            <div id="jumboText" class="col-md-8">
+                <h1 id="nytText" class="display-4">Space News Headlines</h1>
+                <p class="lead">Scraped from
+                    <a class="jumboTextLinks" href="https://www.nytimes.com" target="_blank"> The New York Times </a>
+                    Science/Space section using
+                    <a class="jumboTextLinks" href="https://cheerio.js.org" target="_blank"> Cheerio.js</a>.
+                </p>
+                <hr class="my-4">
+                <p>New articles are scraped and then added upon loading this page.
+                    Feel free to come back regularly to check for new stories.
+                </p>
             </div>
-            <hr class="separator">
         </div>
-        <div class="col-md-2"></div>
     </div>
-    {{/each}}
+</header>
 
-</div>
+{{!-- Headlines --}}
+<main class="container-fluid">
+    <section id="story-tab">
+        <ul class="nav nav-tabs story-tabs">
+            <li class="nav-item nav-link active story-tab">Latest Stories</li>
+    </section>
+    <articles>
+        {{#each document}}
+        <div class="row headlineRow">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row headlineContent">
+                    <div class="col-md-4 headlineImage">
+                        <img src={{photo}}>
+                    </div>
+                    <div class="col-md-8 headline" <h4>
+                        <div class="row">
+                            <div class="col-md-12 headlineTitle">
+                                <a href={{link}} target="_blank">{{title}}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{summary}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="commentBar">
+                            <button id="commentButton" data-id={{_id}} type="submit">View Comments</button>
+                        </div>
+                    </div>
+                </div>
+                <hr class="separator">
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        {{/each}}
+    </articles>
+</main>
