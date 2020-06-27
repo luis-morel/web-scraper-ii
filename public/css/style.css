@@ -6,25 +6,39 @@ body {
 
 /* Nav Bar Styling */
 
-#navbarLink {
-    color: black;
+.navbar {
+    height: 4rem;
+}
+
+.ws-navbar-defaults {
     font-family: 'Architects Daughter', cursive;
     /* font-family: 'Caveat', cursive; */
     /* font-family: 'Kaushan Script', cursive; */
     /* font-family: 'Lobster', cursive; */
     /* font-family: 'Shadows Into Light', cursive; */
-    font-size: 1.5rem;
     font-weight: bold;
-    line-height: 1.5rem;
 }
 
-#navbarLink:hover {
+#ws-main-navbar-link {
     color: black;
 }
 
-.navbar {
-    height: 4rem;
+#ws-main-navbar-link:hover {
+    color: #dc3545;
 }
+
+.ws-comments-navbar {
+    background-color: black;
+}
+
+#ws-comments-navbar-link {
+    color: #fff;
+}
+
+#ws-comments-navbar-link:hover {
+    color: #dc3545;
+}
+
 
 
 /* Header Styling */
@@ -63,7 +77,7 @@ body {
 }
 
 
-/* Main Styling */
+/* Main Page & Headlines Styling */
 
 #story-tab {
     color: black;
@@ -79,25 +93,9 @@ body {
     border-color: darkgray darkgray #fff !important;
 }
 
-.commentBar {
-    background-color: whitesmoke;
-    text-align: center;
+.headlineDate {
+    color: gray;
 }
-
-.commentBar button {
-    background-color: unset;
-    border: 0;
-    color: lightskyblue;
-    font-weight: bold;
-    padding: 5px;
-}
-
-.commentBar button:hover {
-    background-color: lightskyblue;
-    border-radius: 3px;
-    color: white;
-    font-weight: bold;
-} 
 
 .headline {
     margin-bottom: 5px;
@@ -117,10 +115,6 @@ body {
     width: 100%;
 }
 
-.headlineRow {
-    margin-bottom: 25px;
-}
-
 .headlineTitle a {
     color: black;
     font-size: 18px;
@@ -128,16 +122,47 @@ body {
 }
 
 .headlineTitle a:hover {
-    color: gray;
+    color: rgb(5,128,128);
     text-decoration: none;
 }
+
+.headlineAuthor {
+    color: gray;
+}
+
 .separator {
-    border-top: 1.5px solid #eee;
-    margin: 11px 0 0 0;
+    border-top: 1px solid gray;
+}
+
+.ws-main-hl-hr {
+    border-top: 1px solid lightgray;
+    padding-bottom: 15px;
+}
+
+.commentLink {
+    padding-top: 3px;
+}
+
+.commentLink a {
+    color: gray;
+    font-size: .95rem;
+}
+
+.commentLink a:hover {
+    color: #dc3545;
+    text-decoration: none;
 }
 
 
-/* Comments Styling */
+/* Comments Page Styling */
+
+.ws-comments-container {
+    margin-top: 2rem;
+}
+
+#ws-comments-hl-date {
+    font-size: 14px;
+}
 
 #commentInput {
     border: none;
@@ -165,21 +190,28 @@ body {
     font-weight: bold;
 }
 
-.commentPanel {
-    background-color: whitesmoke;
+.ws-comments-comment-panel {
     border-radius: 5px;
-    margin-bottom: 15px;
-    padding: 1px 20px 20px;
+    padding: 1rem 7rem 1rem;
+    text-align: center;
 }
 
-.commentPanel h4 {
+.ws-comments-comment-panel h4 {
     color: lightskyblue;
     text-align: center;
 }
 
-.commentPanel img {
+.ws-comments-comment-panel img {
     height: 20px;
     width: 20px;
+}
+
+#ws-comments-comment-panel-header {
+    color: #dc3545;
+}
+
+#ws-comments-comment-submit {
+    padding: .1rem 1rem;
 }
 
 .comments {
@@ -190,6 +222,7 @@ body {
 }
 
 .noComments {
+    color: gray;
     text-align: center;
 }
 

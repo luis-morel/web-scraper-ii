@@ -35,14 +35,9 @@ const webScraper = async () => {
                     author = $(element).find('span.css-1n7hynb').text(),
                     link = $(element).find('div.css-1l4spti a').attr('href'),
                     date = link.slice(1, 11),
-                    year = date.slice(0, 4),
-                    dateCheck = parseInt(year);
+                    dateCheck = parseInt(date.slice(0, 4));
                 if (isNaN(dateCheck)) date = getCurrentDate();
-                else {
-                    let month = date.slice(5, 7),
-                        day = date.slice(8, 10);
-                    date = `${year}-${month}-${day}`;
-                }
+                else date = getCurrentDate(date);
                 // Checking for Duplicates; Capturing New Headlines
                 if (photo && link && summary && title) {
                     let duplicate = false,
@@ -52,7 +47,15 @@ const webScraper = async () => {
                             duplicate = true;
                             break;
                         }
-                    if (!duplicate) newHeadlines.push({ date, title, summary, photo, author, link: articleLink });
+                    if (!duplicate)
+                        newHeadlines.push({ 
+                            title, 
+                            summary, 
+                            author, 
+                            photo, 
+                            link: articleLink, 
+                            date: date.long, 
+                            timestamp: date.short });
                 };
             });
         })

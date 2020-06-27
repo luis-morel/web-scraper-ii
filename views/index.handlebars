@@ -1,13 +1,11 @@
-{{!-- NavBar --}}
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default ws-navbar-defaults">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="navbarLink" class="navbar-brand" href="/">Web Scraper</a>
+            <a id="ws-main-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
         </div>
     </div>
 </nav>
 
-{{!-- <div class="display">Web Scraper<p>NY Times Science Space Headlines</p></div> --}}
 <header class="jumbotron jumbotron-fluid">
     <div class="container-fluid">
         <div class="row">
@@ -22,7 +20,7 @@
                     <a class="jumboTextLinks" href="https://cheerio.js.org" target="_blank"> Cheerio.js</a>.
                 </p>
                 <hr class="my-4">
-                <p>New articles are scraped and then added upon loading this page.
+                <p>New articles are scraped and then added each time you load this page.
                     Feel free to come back regularly to check for new stories.
                 </p>
             </div>
@@ -30,7 +28,6 @@
     </div>
 </header>
 
-{{!-- Headlines --}}
 <main class="container-fluid">
     <section id="story-tab">
         <ul class="nav nav-tabs story-tabs">
@@ -38,8 +35,19 @@
     </section>
     <articles>
         {{#each document}}
+        {{#if @index}}
+        <div class="row">
+            <div class="col-md-12">
+                <hr class="ws-main-hl-hr">
+            </div>
+        </div>
+        {{/if}}
         <div class="row headlineRow">
-            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <div class="headlineDate">
+                    <p><time>{{date}}</time></p>
+                </div>
+            </div>
             <div class="col-md-8">
                 <div class="row headlineContent">
                     <div class="col-md-4 headlineImage">
@@ -53,19 +61,27 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                {{summary}}
+                                <div class="headlineAuthor">
+                                    {{#if author}}
+                                    <p>By {{author}}</p>
+                                    {{/if}}
+                                    {{#unless author}}
+                                    <p></p>
+                                    {{/unless}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div>{{summary}}</div>
+                                <div class="commentLink">
+                                    <a href="/comments/{{_id}}" target="_blank">Comments</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="commentBar">
-                            <button id="commentButton" data-id={{_id}} type="submit">View Comments</button>
-                        </div>
-                    </div>
-                </div>
-                <hr class="separator">
+                {{!-- <hr class="separator"> --}}
             </div>
             <div class="col-md-2"></div>
         </div>

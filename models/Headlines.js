@@ -24,8 +24,12 @@ const HeadlinesSchema = new Schema({
         required: true
     },
     date: {
-        type: Date,
+        type: String,
         required: true
+    },
+    timestamp: {
+        type: Date,
+        require: true
     },
     comments: [{                        // Relating 'Comments' Model to 'Headlines'
         type: Schema.Types.ObjectId,

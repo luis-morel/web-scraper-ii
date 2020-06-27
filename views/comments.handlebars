@@ -1,15 +1,12 @@
-<!-- NavBar -->
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default ws-comments-navbar ws-navbar-defaults">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a id="navbarLink" class="navbar-brand" href="/">Web Scraper</a>
+            <a id="ws-comments-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
         </div>
     </div>
 </nav>
 
-<div class="container">
-
-    <!-- Headlines -->
+<main class="container-fluid ws-comments-container">
     <div class="row headlineRow">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -25,39 +22,73 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+                            <div class="headlineAuthor">
+                                {{#if document.author}}
+                                <p>By {{document.author}}</p>
+                                {{/if}}
+                                {{#unless document.author}}
+                                <p></p>
+                                {{/unless}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="headlineDate">
+                                <p id="ws-comments-hl-date"><time>{{document.date}}</time></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             {{document.summary}}
                         </div>
                     </div>
                 </div>
             </div>
-            <hr class="separator">
+            {{!-- <hr class="separator"> --}}
         </div>
         <div class="col-md-2"></div>
     </div>
 
-    <!-- Comments -->
+    {{!-- Comments --}}
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="commentPanel">
-                <h4>
-                    <img src="/images/message.png"> Comment
+            <div class="ws-comments-comment-panel">
+                {{!-- <h4>
+                    <img src="/images/message.png"> Leave a Comment
                 </h4>
                 <form method="post" enctype="text/plain">
                     <textarea id="commentInput" data-id={{document._id}} placeholder="Write a comment..."></textarea>
-                </form>
+                </form> --}}
+                <div>
+                    <p id="ws-comments-comment-panel-header">Leave a Comment</p>
+                </div>
+                <div class="input-group">
+                    <div class="input-group-prepend"></div>
+                    <div class="input-group mb-3">
+                        <input type="text" id="ws-comments-comment-panel-name" class="form-control" placeholder="Name" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <textarea id="ws-comments-comment-panel-comment" data-id={{document._id}} class="form-control" aria-label="With textarea" placeholder="Comment"></textarea>
+                    </div>
+                    <div>
+                        <button type="button" id="ws-comments-comment-submit" class="btn btn-outline-danger" data-id={{document._id}}>Submit</button>
+                    </div>
+                </div>
             </div>
             {{#if document.comments}} {{#each document.comments}}
             <div class="comments">
-                {{message}}
+                {{comment}}
                 <button id="commentDelete" data-id={{_id}} type="submit">Delete</button>
             </div>
             {{/each}} {{else}}
-            <div class="noComments">No Comments.</div>
+            <div class="noComments">No Comments</div>
             {{/if}}
 
         </div>
         <div class="col-md-2"></div>
     </div>
-
-</div>
+</main>
