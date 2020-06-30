@@ -1,12 +1,15 @@
 {
     "name": "web-scraper-ii",
     "version": "1.0.0",
-    "description": "",
+    "description": "A NY Times web scraping app",
     "main": "server.js",
     "scripts": {
         "dev": "nodemon server.js",
         "start": "node server.js",
         "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "engines": {
+        "node": "12.16"
     },
     "repository": {
         "type": "git",
