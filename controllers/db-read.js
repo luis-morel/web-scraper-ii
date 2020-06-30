@@ -10,7 +10,7 @@ const db = require('../models');     // MongoDB Models
 const getAllHeadlines = async () => {
     let headlines = [];
     await db.Headlines.find()
-        .sort({ date: 'desc' })
+        .sort({ 'timestamp': -1 })
         .lean()
         .then((documents) => { headlines = documents; })
         .catch((error) => console.log('\nUnable to retrieve all headlines. Error:\n', error));
@@ -25,7 +25,7 @@ const getHeadlineWithComments = async (_id) => {
             path: 'comments', 
             select: ['name', 'comment', 'date'],
             options: {
-                sort: { 'timestamp': 'desc'}
+                sort: { 'timestamp': -1 }
             }
         })
         .lean()
