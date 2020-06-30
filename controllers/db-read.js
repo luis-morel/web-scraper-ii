@@ -10,7 +10,7 @@ const db = require('../models');     // MongoDB Models
 const getAllHeadlines = async () => {
     let headlines = [];
     await db.Headlines.find()
-        .sort({ date: 'desc' })
+        .sort({ timestamp: 'desc' })
         .lean()
         .then((documents) => { headlines = documents; })
         .catch((error) => console.log('\nUnable to retrieve all headlines. Error:\n', error));
