@@ -16,4 +16,4 @@ const postComment = async (req, res) => {
 
 module.exports = {
     postComment
-}
+};

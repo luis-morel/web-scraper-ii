@@ -7,8 +7,7 @@
 const db = require('../models');     // MongoDB Models
 
 const dbDeleteComment = async (commentId, headlineId) => {
-    await db.Comments.findOneAndRemove(
-        { _id: commentId })
+    await db.Comments.findOneAndRemove({ _id: commentId })
         .then((document) => {
             return db.Headlines.findOneAndUpdate(
                 { _id: headlineId },
@@ -20,4 +19,4 @@ const dbDeleteComment = async (commentId, headlineId) => {
 
 module.exports = {
     dbDeleteComment
-}
+};

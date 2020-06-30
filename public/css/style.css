@@ -1,16 +1,26 @@
 /* General Styling */
+html,
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 100%;
+}
+
+textarea::placeholder {
+    color: lightgray;
+}
+
+.ws-content {
+    flex: 1 0 auto;
 }
 
 
 /* Nav Bar Styling */
-
 .navbar {
     height: 4rem;
 }
 
-.ws-navbar-defaults {
+.ws-navbar-defaults, 
+.ws-footer-logo-txt {
     font-family: 'Architects Daughter', cursive;
     /* font-family: 'Caveat', cursive; */
     /* font-family: 'Kaushan Script', cursive; */
@@ -38,7 +48,6 @@ body {
 #ws-comments-navbar-link:hover {
     color: #dc3545;
 }
-
 
 
 /* Header Styling */
@@ -77,8 +86,7 @@ body {
 }
 
 
-/* Main Page & Headlines Styling */
-
+/* Main Page & Headline Styling */
 #story-tab {
     color: black;
     font-weight: bolder;
@@ -155,58 +163,21 @@ body {
 
 
 /* Comments Page Styling */
-
-.ws-comments-container {
+.ws-comments-main-container {
     margin-top: 2rem;
+    min-height: 100%;
 }
 
 #ws-comments-hl-date {
-    font-size: 14px;
+    font-size: .9rem;
 }
 
-#commentInput {
-    border: none;
-    border-radius: 5px;
-    height: 75px;
-    padding: 5px;
-    width: 100%;
-    resize: none;
-}
-
-.comments button {
-    background-color: unset;
-    border: 0;
-    color: lightskyblue;
-    float: right;
-    font-weight: bold;
-    padding: 5px;
-    width: 77px;
-}
-
-.comments button:hover {
-    background-color: lightskyblue;
-    border-radius: 3px;
-    color: white;
-    font-weight: bold;
-}
-
-.ws-comments-comment-panel {
-    border-radius: 5px;
-    padding: 1rem 7rem 1rem;
+/* Comment Form */
+.ws-comments-comment-form {
     text-align: center;
 }
 
-.ws-comments-comment-panel h4 {
-    color: lightskyblue;
-    text-align: center;
-}
-
-.ws-comments-comment-panel img {
-    height: 20px;
-    width: 20px;
-}
-
-#ws-comments-comment-panel-header {
+#ws-comments-comment-form-header {
     color: #dc3545;
 }
 
@@ -214,18 +185,141 @@ body {
     padding: .1rem 1rem;
 }
 
-.comments {
-    background-color: whitesmoke;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    padding: 20px;
+/* Comments */
+#ws-comments-comments-header {
+    background: black;
+    color: white;
+    margin: 1.5rem 0;
+    text-align: center;
 }
 
-.noComments {
+.ws-commments-comments-container {
+    background-color: lightgoldenrodyellow;
+    border-radius: 0 2.5rem 2rem;
+    font-size: .9rem;
+    margin: 0 1.5rem 1.5rem;
+    padding: 1.5rem;
+}
+
+.ws-comments-comments-delete {
+    float: right;
+}
+
+.ws-comments-comments-name {
+    font-weight: bold;
+}
+
+.ws-comments-comments-date {
+    color: gray;
+    padding-bottom: 1rem;
+}
+
+.ws-comments-comments {
+    font-size: 1rem;
+}
+
+.ws-comments-no-comments {
     color: gray;
     text-align: center;
 }
 
-textarea::placeholder {
-    color: lightgray;
+/* Footer Styling */
+.ws-footer {
+    background-color: black;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    margin-top: 3rem;
+    padding: .7rem 0 .1rem;
+    text-align: center;
+}
+
+.ws-footer-logo-txt {
+    font-size: 1.1rem;
+}
+
+.ws-footer-copyright {
+    color: #dc3545;
+}
+
+.ws-footer-copyright:hover {
+    color: #e25664;
+    text-decoration: none;
+}
+
+.ws-footer-hb-logo {
+    margin-top: -.7rem;
+}
+
+.ws-footer-hb-logo-txt {
+    color: #f0772b;
+}
+
+.ws-footer-hb-logo-txt:hover {
+    color: #f38f50;
+    text-decoration: none;
+}
+
+.ws-footer-hb-logo img {
+    height: 1.1rem;
+    margin-top: -.2rem;
+    width: 1.1rem;
+}
+
+/* Mobile Responsive Breakpoints */
+@media all and (min-width: 320px) {
+    .ws-comments-comment-form {
+        padding: 1rem 3rem 1rem;
+    }
+
+    .ws-footer {
+        font-size: .8rem;
+    }
+
+    .ws-footer-logo-txt {
+        font-size: 1rem;
+    }
+}
+
+@media all and (min-width: 400px) {
+    .ws-comments-comment-form {
+        padding: 1rem 3rem 1rem;
+    }
+
+    .ws-footer {
+        font-size: 1rem;
+    }
+    
+    .ws-footer-logo-txt {
+        font-size: 1.1rem;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .ws-comments-comment-form {
+        padding: 1rem 7rem 1rem;
+    }
+}
+
+@media all and (min-width: 768px) {
+    .ws-comments-comment-form {
+        padding: 1rem 4rem 1rem;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .ws-comments-comment-form {
+        padding: 1rem 8rem 1rem;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .ws-comments-comment-form {
+        padding: 1rem 10rem 1rem;
+    }
+}
+
+@media all and (min-width: 1400px) {
+    .ws-comments-comment-form {
+        padding: 1rem 12rem 1rem;
+    }
 }

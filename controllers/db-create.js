@@ -17,9 +17,8 @@ const dbInsertManyHeadlines = async (newHeadlines) => {
 // Insert New Post
 const dbInsertComment = async (headlineId, comment) => {
     let date = getCurrentDate();
-    comment.date = date.long;
-    comment.timestamp = date.short;
-    console.log(`Commment details:\n${comment}`)
+    comment.date = date.shortDate;
+    comment.timestamp = date.isoDate;
     await db.Comments.create(comment)
         .then((document) => {
             return db.Headlines.findOneAndUpdate(

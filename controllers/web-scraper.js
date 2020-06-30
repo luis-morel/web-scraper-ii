@@ -54,8 +54,8 @@ const webScraper = async () => {
                             author, 
                             photo, 
                             link: articleLink, 
-                            date: date.long, 
-                            timestamp: date.short });
+                            date: date.shortDate, 
+                            timestamp: date.isoDate });
                 };
             });
         })
@@ -70,4 +70,4 @@ const webScraper = async () => {
 
 module.exports = {
     webScraper
-}
+};

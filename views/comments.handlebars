@@ -1,94 +1,137 @@
-<nav class="navbar navbar-default ws-comments-navbar ws-navbar-defaults">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a id="ws-comments-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
+<div class="ws-content">
+    <nav class="navbar navbar-default ws-comments-navbar ws-navbar-defaults">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id="ws-comments-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<main class="container-fluid ws-comments-container">
-    <div class="row headlineRow">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="row headlineContent">
-                <div class="col-md-4 headlineImage">
-                    <img src={{document.photo}}>
-                </div>
-                <div class="col-md-8 headline" <h4>
-                    <div class="row">
-                        <div class="col-md-12 headlineTitle">
-                            <a href={{document.link}} target="_blank">{{document.title}}</a>
-                        </div>
+    <main class="container-fluid ws-comments-main-container">
+
+        {{!-- Headline --}}
+        <div class="row headlineRow">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row headlineContent" data-id={{document._id}}>
+                    <div class="col-md-4 headlineImage">
+                        <img src={{document.photo}}>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="headlineAuthor">
-                                {{#if document.author}}
-                                <p>By {{document.author}}</p>
-                                {{/if}}
-                                {{#unless document.author}}
-                                <p></p>
-                                {{/unless}}
+                    <div class="col-md-8 headline">
+                        <div class="row">
+                            <div class="col-md-12 headlineTitle">
+                                <a href={{document.link}} target="_blank">{{document.title}}</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="headlineDate">
-                                <p id="ws-comments-hl-date"><time>{{document.date}}</time></p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="headlineAuthor">
+                                    {{#if document.author}}
+                                    <p>By {{document.author}}</p>
+                                    {{/if}}
+                                    {{#unless document.author}}
+                                    <p></p>
+                                    {{/unless}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {{document.summary}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="headlineDate">
+                                    <p id="ws-comments-hl-date"><time>{{document.date}}</time></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {{document.summary}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {{!-- <hr class="separator"> --}}
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
-    </div>
 
-    {{!-- Comments --}}
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="ws-comments-comment-panel">
-                {{!-- <h4>
-                    <img src="/images/message.png"> Leave a Comment
-                </h4>
-                <form method="post" enctype="text/plain">
-                    <textarea id="commentInput" data-id={{document._id}} placeholder="Write a comment..."></textarea>
-                </form> --}}
-                <div>
-                    <p id="ws-comments-comment-panel-header">Leave a Comment</p>
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend"></div>
-                    <div class="input-group mb-3">
-                        <input type="text" id="ws-comments-comment-panel-name" class="form-control" placeholder="Name" aria-label="Username"
-                            aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <textarea id="ws-comments-comment-panel-comment" data-id={{document._id}} class="form-control" aria-label="With textarea" placeholder="Comment"></textarea>
-                    </div>
+        {{!-- Comment Form --}}
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="ws-comments-comment-form">
                     <div>
-                        <button type="button" id="ws-comments-comment-submit" class="btn btn-outline-danger" data-id={{document._id}}>Submit</button>
+                        <p id="ws-comments-comment-form-header">Leave a Comment</p>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend"></div>
+                        <div class="input-group mb-3">
+                            <input type="text" id="ws-comments-comment-form-name" class="form-control"
+                                placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <textarea id="ws-comments-comment-form-comment" data-id={{document._id}}
+                                class="form-control" aria-label="With textarea" placeholder="Comment"></textarea>
+                        </div>
+                        <div>
+                            <button type="button" id="ws-comments-comment-submit" class="btn btn-outline-danger"
+                                data-id={{document._id}}>Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            {{#if document.comments}} {{#each document.comments}}
-            <div class="comments">
-                {{comment}}
-                <button id="commentDelete" data-id={{_id}} type="submit">Delete</button>
-            </div>
-            {{/each}} {{else}}
-            <div class="noComments">No Comments</div>
-            {{/if}}
-
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2"></div>
+
+        {{!-- Comments --}}
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div id="ws-comments-comments-header">
+                    <p>Comments</p>
+                </div>
+                {{#if document.comments}} {{#each document.comments}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ws-commments-comments-container">
+                            {{!-- <div class="ws-comments-comments-delete">
+                            <button class="btn btn-secondary fa fa-trash-o ws-comments-comment-delete-btn"
+                                data-id={{_id}} type="button">
+                            </button>
+                        </div> --}}
+                            <div class="ws-comments-comments-name">
+                                {{name}}
+                            </div>
+
+                            <div class="ws-comments-comments-date">
+                                {{date}}
+                            </div>
+                            <div class="ws-comments-comments">
+                                {{comment}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}} {{else}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ws-comments-no-comments">No Comments</div>
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </main>
+</div>
+
+<footer class="ws-footer">
+    <div class="ws-footer-txt">
+        <p><span class="ws-footer-logo-txt">Web Scraper</span> | <a href="https://www.linkedin.com/in/luis-morel"
+                class="ws-footer-copyright" target="_blank">
+                Copyright © 2020 by Luis Morel</a>
+        </p>
     </div>
-</main>
+    <div class="ws-footer-hb-logo">
+        <p>Built with <a href="https://handlebarsjs.com" class="ws-footer-hb-logo-txt" target="_blank">Handlebars
+            </a><img alt="Handlebars" src="/images/handlebars-logo-image.png" class="ws-footer-hb-logo-img" /></p>
+    </div>
+</footer>

@@ -35,12 +35,12 @@ const getCurrentDate = (date = null) => {
         year = date.slice(0, 4);
     }
     formattedDate = {
-        long: `${months[month]} ${day}, ${year}`,
-        short: `${year}-${month}-${day}`
+        shortDate: `${months[month]} ${day}, ${year}`,
+        isoDate: new Date()
     };
     return formattedDate;
 };
 
 module.exports = {
     getCurrentDate
-}
+};
