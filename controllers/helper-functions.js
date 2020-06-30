@@ -28,16 +28,20 @@ const getCurrentDate = (date = null) => {
         month = (date.getMonth() + 1).toString().padStart(2, '0');
         day = date.getDate().toString().padStart(2, '0');
         year = date.getFullYear();
+        formattedDate = {
+            shortDate: `${months[month]} ${day}, ${year}`,
+            isoDate: new Date()
+        };
     } else {
         // Expected 'date' value: YYYY/MM/DD
         month = date.slice(5, 7);
         day = date.slice(8, 10);
         year = date.slice(0, 4);
+        formattedDate = {
+            shortDate: `${months[month]} ${day}, ${year}`,
+            isoDate: `${year}-${month}-${day}`
+        };
     }
-    formattedDate = {
-        shortDate: `${months[month]} ${day}, ${year}`,
-        isoDate: new Date()
-    };
     return formattedDate;
 };
 
