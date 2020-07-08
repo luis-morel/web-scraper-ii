@@ -120,6 +120,10 @@ textarea::placeholder {
     width: 100%;
 }
 
+.headlineTitle {
+    text-align: left;
+}
+
 .headlineTitle a {
     color: black;
     font-size: 18px;
