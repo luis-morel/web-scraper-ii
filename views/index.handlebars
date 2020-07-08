@@ -1,93 +1,96 @@
-<nav class="navbar navbar-default ws-navbar-defaults">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a id="ws-main-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
+<div class="ws-content">
+    <nav class="navbar navbar-default ws-navbar-defaults">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id="ws-main-navbar-link" class="navbar-brand" href="/">Web Scraper</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<header class="jumbotron jumbotron-fluid">
-    <div class="container-fluid">
-        <div class="row">
-            <div id="jumboPhoto" class="col-md-4">
-                <img src="/images/html-code-image-3.jpg">
-            </div>
-            <div id="jumboText" class="col-md-8">
-                <h1 id="nytText" class="display-4">Space News Headlines</h1>
-                <p class="lead">Scraped from
-                    <a class="jumboTextLinks" href="https://www.nytimes.com" target="_blank"> The New York Times </a>
-                    Science/Space section using
-                    <a class="jumboTextLinks" href="https://cheerio.js.org" target="_blank"> Cheerio.js</a>.
-                </p>
-                <hr class="my-4">
-                <p>New articles are scraped and then added each time you load this page.
-                    Feel free to come back regularly to check for new stories.
-                </p>
-            </div>
-        </div>
-    </div>
-</header>
-
-<main class="container-fluid">
-    <section id="story-tab">
-        <ul class="nav nav-tabs story-tabs">
-            <li class="nav-item nav-link active story-tab">Latest Stories</li>
-    </section>
-    <articles>
-        {{#each document}}
-        {{#if @index}}
-        <div class="row">
-            <div class="col-md-12">
-                <hr class="ws-main-hl-hr">
-            </div>
-        </div>
-        {{/if}}
-        <div class="row headlineRow">
-            <div class="col-md-2">
-                <div class="headlineDate">
-                    <p><time>{{date}}</time></p>
+    <header class="jumbotron jumbotron-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div id="jumboPhoto" class="col-md-4">
+                    <img src="/images/html-code-image-3.jpg">
+                </div>
+                <div id="jumboText" class="col-md-8">
+                    <h1 id="nytText" class="display-4">Space News Headlines</h1>
+                    <p class="lead">Scraped from
+                        <a class="jumboTextLinks" href="https://www.nytimes.com" target="_blank"> The New York Times
+                        </a>
+                        Science/Space section using
+                        <a class="jumboTextLinks" href="https://cheerio.js.org" target="_blank"> Cheerio.js</a>.
+                    </p>
+                    <hr class="my-4">
+                    <p>New articles are scraped and then added each time you load this page.
+                        Feel free to come back regularly to check for new stories.
+                    </p>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="row headlineContent">
-                    <div class="col-md-4 headlineImage">
-                        <img src={{photo}}>
+        </div>
+    </header>
+
+    <main class="container-fluid">
+        <section id="story-tab">
+            <ul class="nav nav-tabs story-tabs">
+                <li class="nav-item nav-link active story-tab">Latest Stories</li>
+        </section>
+        <articles>
+            {{#each document}}
+            {{#if @index}}
+            <div class="row">
+                <div class="col-md-12">
+                    <hr class="ws-main-hl-hr">
+                </div>
+            </div>
+            {{/if}}
+            <div class="row headlineRow">
+                <div class="col-md-2">
+                    <div class="headlineDate">
+                        <p><time>{{date}}</time></p>
                     </div>
-                    <div class="col-md-8 headline" <h4>
-                        <div class="row">
-                            <div class="col-md-12 headlineTitle">
-                                <a href={{link}} target="_blank">{{title}}</a>
-                            </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row headlineContent">
+                        <div class="col-md-4 headlineImage">
+                            <img src={{photo}}>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="headlineAuthor">
-                                    {{#if author}}
-                                    <p>By {{author}}</p>
-                                    {{/if}}
-                                    {{#unless author}}
-                                    <p></p>
-                                    {{/unless}}
+                        <div class="col-md-8 headline" <h4>
+                            <div class="row">
+                                <div class="col-md-12 headlineTitle">
+                                    <a href={{link}} target="_blank">{{title}}</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="headlineAuthor">
+                                        {{#if author}}
+                                        <p>By {{author}}</p>
+                                        {{/if}}
+                                        {{#unless author}}
+                                        <p></p>
+                                        {{/unless}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div>{{summary}}</div>
+                                    <div class="commentLink">
+                                        <a href="/comments/{{_id}}">Comments</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div>{{summary}}</div>
-                                <div class="commentLink">
-                                    <a href="/comments/{{_id}}" >Comments</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    {{!-- <hr class="separator"> --}}
                 </div>
-                {{!-- <hr class="separator"> --}}
+                <div class="col-md-2"></div>
             </div>
-            <div class="col-md-2"></div>
-        </div>
-        {{/each}}
-    </articles>
-</main>
+            {{/each}}
+        </articles>
+    </main>
+</div>
 
 <footer class="ws-footer">
     <div class="ws-footer-txt">
@@ -97,6 +100,7 @@
         </p>
     </div>
     <div class="ws-footer-hb-logo">
-        <p>Built with <a href="https://handlebarsjs.com" class="ws-footer-hb-logo-txt" target="_blank">Handlebars </a><img alt="Handlebars" src="/images/handlebars-logo-image.png" class="ws-footer-hb-logo-img"/></p>
+        <p>Built with <a href="https://handlebarsjs.com" class="ws-footer-hb-logo-txt" target="_blank">Handlebars
+            </a><img alt="Handlebars" src="/images/handlebars-logo-image.png" class="ws-footer-hb-logo-img" /></p>
     </div>
 </footer>
