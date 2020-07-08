@@ -32,6 +32,7 @@
         <section id="story-tab">
             <ul class="nav nav-tabs story-tabs">
                 <li class="nav-item nav-link active story-tab">Latest Stories</li>
+            </ul>
         </section>
         <articles>
             {{#each document}}
@@ -43,17 +44,17 @@
             </div>
             {{/if}}
             <div class="row headlineRow">
-                <div class="col-md-2">
+                <div class="col-sm-3 col-md-2 col-lg-2">
                     <div class="headlineDate">
                         <p><time>{{date}}</time></p>
                     </div>
                 </div>
-                <div class="col-sm-10 col-md-10 col-lg-8">
+                <div class="col-sm-9 col-md-10 col-lg-8">
                     <div class="row headlineContent">
                         <div class="col-md-4 headlineImage">
                             <img src={{photo}}>
                         </div>
-                        <div class="col-md-8 headline" <h4>
+                        <div class="col-md-8 headline">
                             <div class="row">
                                 <div class="col-md-12 headlineTitle">
                                     <a href={{link}} target="_blank">{{title}}</a>
@@ -80,9 +81,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
-                <div class="col-sm-0 col-md-0 col-lg-2"></div>
+                <div class="col-lg-2"></div>
             </div>
             {{/each}}
         </articles>

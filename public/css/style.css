@@ -65,10 +65,6 @@ textarea::placeholder {
     background-size: 100% 100%;
 }
 
-#jumboPhoto img {
-    max-width: 100%;
-}
-
 #jumboText {
     padding: 15px;
 }
@@ -304,6 +300,10 @@ textarea::placeholder {
 }
 
 @media all and (min-width: 576px) {
+    .headlineDate {
+        font-size: .9rem;
+    }
+
     .ws-comments-comment-form {
         padding: 1rem 7rem 1rem;
     }
@@ -313,13 +313,17 @@ textarea::placeholder {
     .navbar .container-fluid {
         justify-content: space-between;
     }
-    
+
     .ws-comments-comment-form {
         padding: 1rem 4rem 1rem;
     }
 }
 
 @media all and (min-width: 992px) {
+    .headlineDate {
+        font-size: 1rem;
+    }
+
     .ws-comments-comment-form {
         padding: 1rem 8rem 1rem;
     }
