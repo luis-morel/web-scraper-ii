@@ -6,7 +6,7 @@
 
 const mongoose = require('mongoose');   // MongoDB Object Modeler
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/NYTSSHeadlines';
+const MONGODB_URI = process.env.MLAB_MONGODB_URI || 'mongodb://localhost/NYTSSHeadlines';
 mongoose.Promise = Promise; // Leveraging ES6 Promises
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
