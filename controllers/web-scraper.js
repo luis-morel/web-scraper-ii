@@ -29,11 +29,11 @@ const webScraper = async () => {
             const $ = cheerio.load(body);   // Load Response Body into Cheerio
             // Parse <li class='css-ye6x8s'> elements
             $("li.css-ye6x8s").each((i, element) => {
-                let title = $(element).find('h2.css-1j9dxys').text(),
-                    summary = $(element).find('p.css-1echdzn').text(),
-                    photo = $(element).find('img.css-11cwn6f').attr('src'),
-                    author = $(element).find('span.css-1n7hynb').text(),
-                    link = $(element).find('div.css-1l4spti a').attr('href'),
+                let title = $(element).find('h3.css-1kv6qi').text(), // Previously: h2.css-1j9dxys
+                    summary = $(element).find('p.css-1pga48a').text(), // Previously: p.css-1echdzn
+                    photo = $(element).find('img.css-rq4mmj').attr('src'), // Previously: img.css-11cwn6f
+                    author = $(element).find('span.css-1n7hynb').text(), // Previously: span.css-1n7hynb
+                    link = $(element).find('a.css-8hzhxf').attr('href'), // Previously: div.css-1l4spti a
                     date = link.slice(1, 11),
                     dateCheck = parseInt(date.slice(0, 4));
                 if (isNaN(dateCheck)) date = getCurrentDate();
